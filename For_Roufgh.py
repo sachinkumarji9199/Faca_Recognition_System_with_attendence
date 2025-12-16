@@ -1,0 +1,927 @@
+import tkinter as tk
+from tkinter import Label, Button, Toplevel
+from PIL import Image, ImageTk
+
+
+class Face_Recognition_System:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("1530x790+0+0")
+        self.root.title("Face Recognition System")
+        
+        # First Image
+        try:
+            img_path1 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Projectupperimage2.jpg"
+            img1 = Image.open(img_path1)
+            img1 = img1.resize((500, 130), Image.LANCZOS)
+            self.photoimg1 = ImageTk.PhotoImage(img1)
+
+            f_lbl1 = Label(self.root, image=self.photoimg1)
+            f_lbl1.place(x=0, y=0, width=500, height=130)
+        except Exception as e:
+            print(f"Error loading image 1: {e}")
+
+        # Second Image
+        try:
+            img_path2 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Projectupperimage5.jpg"
+            img2 = Image.open(img_path2)
+            img2 = img2.resize((500, 130), Image.LANCZOS)
+            self.photoimg2 = ImageTk.PhotoImage(img2)
+
+            f_lbl2 = Label(self.root, image=self.photoimg2)
+            f_lbl2.place(x=500, y=0, width=500, height=130)
+        except Exception as e:
+            print(f"Error loading image 2: {e}")
+
+        # Third Image
+        try:
+            img_path3 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Projectupperimage6.jpg"
+            img3 = Image.open(img_path3)
+            img3 = img3.resize((500, 130), Image.LANCZOS)
+            self.photoimg3 = ImageTk.PhotoImage(img3)
+
+            f_lbl3 = Label(self.root, image=self.photoimg3)
+            f_lbl3.place(x=1000, y=0, width=530, height=130)
+        except Exception as e:
+            print(f"Error loading image 3: {e}")
+
+        # Background Image
+        try:
+            img_path4 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\backgroundimage.jpg"
+            img4 = Image.open(img_path4)
+            img4 = img4.resize((1530, 710), Image.LANCZOS)
+            self.photoimg4 = ImageTk.PhotoImage(img4)
+
+            bg_img = Label(self.root, image=self.photoimg4)
+            bg_img.place(x=0, y=130, width=1530, height=710)
+        except Exception as e:
+            print(f"Error loading background image: {e}")
+
+        title_lbl = Label(bg_img, text="FACE RECOGNITION ATTENDANCE SYSTEM SOFTWARE", font=("times new roman", 35, "bold"), bg="white", fg="red")
+        title_lbl.place(x=0, y=0, width=1530, height=45)
+
+        # Student Button
+        try:
+            img_path5 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\studentsimg.webp"
+            img5 = Image.open(img_path5)
+            img5 = img5.resize((220, 220), Image.LANCZOS)
+            self.photoimg5 = ImageTk.PhotoImage(img5)
+
+            b1 = Button(bg_img, image=self.photoimg5,cursor="hand2")
+            b1.place(x=200, y=100, width=220, height=220)
+
+            b1_text = Button(bg_img, text="Student Details", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b1_text.place(x=200, y=300, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading student button image: {e}")
+
+        # Detect face button
+        try:
+            img_path6 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Facerecog.webp"
+            img6 = Image.open(img_path6)
+            img6 = img6.resize((220, 220), Image.LANCZOS)
+            self.photoimg6 = ImageTk.PhotoImage(img6)
+
+            b2 = Button(bg_img, image=self.photoimg6, cursor="hand2")
+            b2.place(x=500, y=100, width=220, height=220)
+
+            b2_text = Button(bg_img, text="Face Detector", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b2_text.place(x=500, y=300, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading face detector button image: {e}")
+
+        # Attendance button
+        try:
+            img_path7 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Attendance2.jpg"
+            img7 = Image.open(img_path7)
+            img7 = img7.resize((220, 220), Image.LANCZOS)
+            self.photoimg7 = ImageTk.PhotoImage(img7)
+
+            b3 = Button(bg_img, image=self.photoimg7, cursor="hand2")
+            b3.place(x=800, y=100, width=220, height=220)
+
+            b3_text = Button(bg_img, text="Attendance", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b3_text.place(x=800, y=300, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading attendance button image: {e}")
+
+        # Help desk button
+        try:
+            img_path8 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\help-desk.webp"
+            img8 = Image.open(img_path8)
+            img8 = img8.resize((220, 220), Image.LANCZOS)
+            self.photoimg8 = ImageTk.PhotoImage(img8)
+
+            b4 = Button(bg_img, image=self.photoimg8, cursor="hand2")
+            b4.place(x=1100, y=100, width=220, height=220)
+
+            b4_text = Button(bg_img, text="Help Desk", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b4_text.place(x=1100, y=300, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading help desk button image: {e}")
+
+        # Train Face button
+        try:
+            img_path9 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Train.jpg"
+            img9 = Image.open(img_path9)
+            img9 = img9.resize((220, 220), Image.LANCZOS)
+            self.photoimg9 = ImageTk.PhotoImage(img9)
+
+            b5 = Button(bg_img, image=self.photoimg9, cursor="hand2")
+            b5.place(x=200, y=380, width=220, height=220)
+
+            b5_text = Button(bg_img, text="Train Data", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b5_text.place(x=200, y=580, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading train data button image: {e}")
+
+        # Photo button
+        try:
+            img_path10 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Photos.jpg"
+            img10 = Image.open(img_path10)
+            img10 = img10.resize((220, 220), Image.LANCZOS)
+            self.photoimg10 = ImageTk.PhotoImage(img10)
+
+            b6 = Button(bg_img, image=self.photoimg10, cursor="hand2")
+            b6.place(x=500, y=380, width=220, height=220)
+
+            b6_text = Button(bg_img, text="Photos", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b6_text.place(x=500, y=580, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading photos button image: {e}")
+
+        # Developer button
+        try:
+            img_path11 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Developer.png"
+            img11 = Image.open(img_path11)
+            img11 = img11.resize((220, 220), Image.LANCZOS)
+            self.photoimg11 = ImageTk.PhotoImage(img11)
+
+            b7 = Button(bg_img, image=self.photoimg11, cursor="hand2")
+            b7.place(x=800, y=380, width=220, height=220)
+
+            b7_text = Button(bg_img, text="Developer", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white")
+            b7_text.place(x=800, y=580, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading developer button image: {e}")
+
+        # Exit button
+        try:
+            img_path12 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\Exit.jpg"
+            img12 = Image.open(img_path12)
+            img12 = img12.resize((220, 220), Image.LANCZOS)
+            self.photoimg12 = ImageTk.PhotoImage(img12)
+
+            b8 = Button(bg_img, image=self.photoimg12, cursor="hand2")
+            b8.place(x=1100, y=380, width=220, height=220)
+
+            b8_text = Button(bg_img, text="Exit", cursor="hand2", font=("times new roman", 15, "bold"), bg="darkblue", fg="white", command=self.root.quit)
+            b8_text.place(x=1100, y=580, width=220, height=40)
+
+        except Exception as e:
+            print(f"Error loading exit button image: {e}")
+
+    
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    obj = Face_Recognition_System(root)
+    root.mainloop()
+
+
+
+
+    #//   1st file //
+
+    
+
+
+
+
+    import tkinter as tk
+from tkinter import ttk
+from tkinter import Label, Button, Toplevel
+from PIL import Image, ImageTk
+
+
+class Face_Recognition_System:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("1530x790+0+0")
+        self.root.title("Face Recognition System")
+     
+     # Header images
+        try:
+            img_path1 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\StudentsDetails1.jpg"
+            img1 = Image.open(img_path1)
+            img1 = img1.resize((500, 130), Image.LANCZOS)
+            self.photoimg1 = ImageTk.PhotoImage(img1)
+            f_lbl1 = tk.Label(self.root, image=self.photoimg1)
+            f_lbl1.place(x=0, y=0, width=500, height=130)
+        except Exception as e:
+            print(f"Error loading image 1: {e}")
+
+        try:
+            img_path2 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\StudentsDetails2.jpg"
+            img2 = Image.open(img_path2)
+            img2 = img2.resize((500, 130), Image.LANCZOS)
+            self.photoimg2 = ImageTk.PhotoImage(img2)
+            f_lbl2 = tk.Label(self.root, image=self.photoimg2)
+            f_lbl2.place(x=500, y=0, width=500, height=130)
+        except Exception as e:
+            print(f"Error loading image 2: {e}")
+
+        try:
+            img_path3 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\StudentsDetails3.webp"
+            img3 = Image.open(img_path3)
+            img3 = img3.resize((500, 130), Image.LANCZOS)
+            self.photoimg3 = ImageTk.PhotoImage(img3)
+            f_lbl3 = tk.Label(self.root, image=self.photoimg3)
+            f_lbl3.place(x=1000, y=0, width=530, height=130)
+        except Exception as e:
+            print(f"Error loading image 3: {e}")
+
+        
+         # Background image
+        try:
+            img_path4 = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\backgroundimage.jpg"
+            img4 = Image.open(img_path4)
+            img4 = img4.resize((1530, 710), Image.LANCZOS)
+            self.photoimg4 = ImageTk.PhotoImage(img4)
+            bg_img = tk.Label(self.root, image=self.photoimg4)
+            bg_img.place(x=0, y=135, width=1530, height=710)
+        except Exception as e:
+            print(f"Error loading background image: {e}")
+
+
+        title_lbl = tk.Label(bg_img, text="STUDENT MANAGEMENT SYSTEM", font=("times new roman", 35, "bold"), bg="white", fg="red")
+        title_lbl.place(x=0, y=0, width=1530, height=45)
+
+        # Main Frame
+        main_frame = tk.Frame(bg_img, bd=2, bg="white")
+        main_frame.place(x=5, y=50, width=1510, height=600)
+
+
+         # Left side Frame
+
+        left_frame = tk.LabelFrame(main_frame, bd=2, relief=tk.RIDGE, text="Student Details", font=("times new roman", 12, "bold"))
+        left_frame.place(x=10, y=10, width=740, height=580)
+
+        img_left_path = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\StudentsDetails5.jpg"
+        img_left = Image.open(img_left_path)
+        img_left = img_left.resize((720, 130), Image.LANCZOS)
+        self.photoimg_left = ImageTk.PhotoImage(img_left)
+
+        f_lbl_left = tk.Label(left_frame, image=self.photoimg_left)
+        f_lbl_left.place(x=5, y=0, width=720, height=130)
+
+        # Current Course Information
+        current_course_frame = tk.LabelFrame(left_frame, bd=2, relief=tk.RIDGE, text="Current Course Information", font=("times new roman", 16, "bold"))
+        current_course_frame.place(x=5, y=135, width=720, height=120)
+
+        
+        # Department
+        dep_label = tk.Label(current_course_frame, text="Department", font=("times new roman", 12, "bold"), bg="white")
+        dep_label.grid(row=0, column=0, padx=10, pady=5, sticky=tk.W)
+
+        dep_combo = ttk.Combobox(current_course_frame, font=("times new roman", 12, "bold"), width=17, state="readonly")
+        dep_combo["values"] = ("Select Department", "Computer Science", "IT", "Civil", "Mechanical", "AIML", "DS", "B-Pharma")
+        dep_combo.current(0)
+        dep_combo.grid(row=0, column=1, padx=2, pady=5, sticky=tk.W)
+
+        # Course
+        course_label = tk.Label(current_course_frame, text="Course", font=("times new roman", 12, "bold"), bg="white")
+        course_label.grid(row=0, column=2, padx=30, pady=5, sticky=tk.W)
+        course_combo = ttk.Combobox(current_course_frame, font=("times new roman", 12, "bold"), width=17, state="readonly")
+        course_combo["values"] = ("Select Course", "FE", "SE", "TE", "BE")
+        course_combo.current(0)
+        course_combo.grid(row=0, column=3, padx=30, pady=5, sticky=tk.W)
+
+        # Year
+        year_label = tk.Label(current_course_frame, text="Year", font=("times new roman", 12, "bold"), bg="white")
+        year_label.grid(row=1, column=0, padx=10, pady=25, sticky=tk.W)
+        year_combo = ttk.Combobox(current_course_frame, font=("times new roman", 12, "bold"), width=17, state="readonly")
+        year_combo["values"] = ("Select Year", "2022-2023", "2023-2024", "2024-2025", "2025-2026")
+        year_combo.current(0)
+        year_combo.grid(row=1, column=1, padx=2, pady=25, sticky=tk.W)
+
+        # Semester
+        semester_label = tk.Label(current_course_frame, text="Semester", font=("times new roman", 12, "bold"), bg="white")
+        semester_label.grid(row=1, column=2, padx=30, pady=25, sticky=tk.W)
+        semester_combo = ttk.Combobox(current_course_frame,  font=("times new roman", 12, "bold"), width=17, state="readonly")
+        semester_combo["values"] = ("Select Semester", "Sem-1", "Sem-2", "Sem-3", "Sem-4", "Sem-5", "Sem-6")
+        semester_combo.current(0)
+        semester_combo.grid(row=1, column=3, padx=30, pady=25, sticky=tk.W)
+
+         # Class Student Information
+        class_student_frame = tk.LabelFrame(left_frame, bd=2, relief=tk.RIDGE, text="Class Student Information", font=("times new roman", 16, "bold"))
+        class_student_frame.place(x=5, y=260, width=720, height=290)
+
+        # Student ID
+        studentID_label = tk.Label(class_student_frame, text="Student ID:", font=("times new roman", 12, "bold"), bg="white")
+        studentID_label.grid(row=0, column=0, padx=10, pady=5, sticky=tk.W)
+
+        studentID_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        studentID_entry.grid(row=0, column=1, padx=10, pady=5, sticky=tk.W)
+
+        # Student Name
+        studentName_label = tk.Label(class_student_frame, text="Student Name:", font=("times new roman", 12, "bold"), bg="white")
+        studentName_label.grid(row=0, column=2, padx=10, pady=5, sticky=tk.W)
+
+        studentName_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        studentName_entry.grid(row=0, column=3, padx=10, pady=5, sticky=tk.W)
+
+        # Class Division
+        class_div_label = tk.Label(class_student_frame, text="Class Division:", font=("times new roman", 12, "bold"), bg="white")
+        class_div_label.grid(row=1, column=0, padx=10, pady=5, sticky=tk.W)
+
+        div_combo = ttk.Combobox(class_student_frame,  font=("times new roman", 12, "bold"), width=18, state="readonly")
+        div_combo["values"] = ("Select ","A", "B", "C")
+        div_combo.current(0)
+        div_combo.grid(row=1, column=1, padx=10, pady=5, sticky=tk.W)
+
+        # Roll Number
+        roll_no_label = tk.Label(class_student_frame, text="Roll No:", font=("times new roman", 12, "bold"), bg="white")
+        roll_no_label.grid(row=1, column=2, padx=10, pady=5, sticky=tk.W)
+
+        roll_no_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        roll_no_entry.grid(row=1, column=3, padx=10, pady=5, sticky=tk.W)
+
+        # Gender
+        gender_label = tk.Label(class_student_frame, text="Gender:", font=("times new roman", 12, "bold"), bg="white")
+        gender_label.grid(row=2, column=0, padx=10, pady=5, sticky=tk.W)
+
+        gender_combo = ttk.Combobox(class_student_frame,  font=("times new roman", 12, "bold"), width=18, state="readonly")
+        gender_combo["values"] = ("Select","Male", "Female", "Other")
+        gender_combo.current(0)
+        gender_combo.grid(row=2, column=1, padx=10, pady=5, sticky=tk.W)
+
+        # Date of Birth
+        dob_label = tk.Label(class_student_frame, text="DOB:", font=("times new roman", 12, "bold"), bg="white")
+        dob_label.grid(row=2, column=2, padx=10, pady=5, sticky=tk.W)
+
+        dob_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        dob_entry.grid(row=2, column=3, padx=10, pady=5, sticky=tk.W)
+
+        # Email
+        email_label = tk.Label(class_student_frame, text="Email:", font=("times new roman", 12, "bold"), bg="white")
+        email_label.grid(row=3, column=0, padx=10, pady=5, sticky=tk.W)
+
+        email_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        email_entry.grid(row=3, column=1, padx=10, pady=5, sticky=tk.W)
+
+        # Phone Number
+        phone_label = tk.Label(class_student_frame, text="Phone No:", font=("times new roman", 12, "bold"), bg="white")
+        phone_label.grid(row=3, column=2, padx=10, pady=5, sticky=tk.W)
+
+        phone_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        phone_entry.grid(row=3, column=3, padx=10, pady=5, sticky=tk.W)
+
+        # Address
+        address_label = tk.Label(class_student_frame, text="Address:", font=("times new roman", 12, "bold"), bg="white")
+        address_label.grid(row=4, column=0, padx=10, pady=5, sticky=tk.W)
+
+        address_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        address_entry.grid(row=4, column=1, padx=10, pady=5, sticky=tk.W)
+
+        # Teacher Name
+        teacher_label = tk.Label(class_student_frame, text="Teacher Name:", font=("times new roman", 12, "bold"), bg="white")
+        teacher_label.grid(row=4, column=2, padx=10, pady=5, sticky=tk.W)
+
+        teacher_entry = ttk.Entry(class_student_frame,  font=("times new roman", 12, "bold"), width=20)
+        teacher_entry.grid(row=4, column=3, padx=10, pady=5, sticky=tk.W)
+
+        # Radio Buttons
+        
+        radiobtn1 = ttk.Radiobutton(class_student_frame,  text="Take Photo Sample", value="Yes")
+        radiobtn1.grid(row=6, column=0)
+        radiobtn2 = ttk.Radiobutton(class_student_frame,  text="No Photo Sample", value="No")
+        radiobtn2.grid(row=6, column=1)
+
+        # Buttons Frame
+        btn_frame = tk.Frame(class_student_frame, bd=2, relief=tk.RIDGE, bg="white")
+        btn_frame.place(x=0, y=200, width=715, height=35)
+        
+        # save
+        save_btn = tk.Button(btn_frame, text="Save", font=("times new roman", 13, "bold"), bg="blue", fg="white", width=17)
+        save_btn.grid(row=0, column=0)
+        
+        # update
+        update_btn = tk.Button(btn_frame, text="Update", font=("times new roman", 13, "bold"), bg="blue", fg="white", width=17)
+        update_btn.grid(row=0, column=1)
+        
+        # delete
+        delete_btn = tk.Button(btn_frame, text="Delete", font=("times new roman", 13, "bold"), bg="blue", fg="white", width=17)
+        delete_btn.grid(row=0, column=2)
+ 
+        # reset
+        reset_btn = tk.Button(btn_frame, text="Reset", font=("times new roman", 13, "bold"), bg="blue", fg="white", width=17)
+        reset_btn.grid(row=0, column=3)
+        
+        # button ko seperate
+
+        btn_frame1 = tk.Frame(class_student_frame, bd=2, relief=tk.RIDGE, bg="white")
+        btn_frame1.place(x=0, y=235, width=715, height=35)
+        # Take a photo sample
+        take_photo_btn = tk.Button(btn_frame1, text="Take photo sample", font=("times new roman", 13, "bold"), bg="blue", fg="white", width=35)
+        take_photo_btn.grid(row=0, column=0)
+
+        # update photot sample
+        update_photo_btn = tk.Button(btn_frame1, text="update photo sample", font=("times new roman", 13, "bold"), bg="blue", fg="white", width=35)
+        update_photo_btn.grid(row=0, column=1)
+
+        # Right side Frame
+        right_frame = tk.LabelFrame(main_frame, bd=2, relief=tk.RIDGE, text="Student Details", font=("times new roman", 12, "bold"))
+        right_frame.place(x=760, y=10, width=720, height=580)
+
+        img_right_path = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\StudentsDetails4.jpg"
+        img_right = Image.open(img_right_path)
+        img_right = img_right.resize((710, 130), Image.LANCZOS)
+        self.photoimg_right = ImageTk.PhotoImage(img_right)
+        f_lbl_right = tk.Label(right_frame, image=self.photoimg_right)
+        f_lbl_right.place(x=5, y=0, width=710, height=130)
+
+        # ======= Search System
+
+        search_frame = tk.LabelFrame(right_frame, bd=2, relief=tk.RIDGE, text="Search System", font=("times new roman", 16, "bold"))
+        search_frame.place(x=5, y=135, width=710, height=70)
+
+        search_label = tk.Label(search_frame, text="Search By:", font=("times new roman", 15, "bold"), bg="white")
+        search_label.grid(row=0, column=0, padx=10, pady=5, sticky=tk.W)
+
+        search_combo = ttk.Combobox(search_frame, font=("times new roman", 13, "bold"), width=15, state="readonly")
+        search_combo["values"] = ("Select", "Roll No", "Phone No", "Student ID")
+        search_combo.current(0)
+        search_combo.grid(row=0, column=1, padx=2, pady=10, sticky=tk.W)
+
+        search_entry = ttk.Entry(search_frame, font=("times new roman", 13, "bold"), width=15)
+        search_entry.grid(row=0, column=2, padx=10, pady=5, sticky=tk.W)
+
+        search_btn = tk.Button(search_frame, text="Search", width=12, font=("times new roman", 12, "bold"), bg="blue", fg="white")
+        search_btn.grid(row=0, column=3, padx=4)
+
+        showAll_btn = tk.Button(search_frame, text="Show All", width=12, font=("times new roman", 12, "bold"), bg="blue", fg="white")
+        showAll_btn.grid(row=0, column=4, padx=4)
+
+        # Table Frame
+        table_frame = tk.Frame(right_frame, bd=2, relief=tk.RIDGE, bg="white")
+        table_frame.place(x=5, y=210, width=710, height=350)
+
+        scroll_x = ttk.Scrollbar(table_frame, orient=tk.HORIZONTAL)
+        scroll_y = ttk.Scrollbar(table_frame, orient=tk.VERTICAL)
+
+        self.student_table = ttk.Treeview(table_frame, columns=("dep", "course", "year", "sem", "id", "name", "div", "roll", "gender", "dob", "email", "phone", "address", "teacher", "photo"), xscrollcommand=scroll_x.set, yscrollcommand=scroll_y.set)
+
+        scroll_x.pack(side=tk.BOTTOM, fill=tk.X)
+        scroll_y.pack(side=tk.RIGHT, fill=tk.Y)
+        scroll_x.config(command=self.student_table.xview)
+        scroll_y.config(command=self.student_table.yview)
+
+        self.student_table.heading("dep", text="Department")
+        self.student_table.heading("course", text="Course")
+        self.student_table.heading("year", text="Year")
+        self.student_table.heading("sem", text="Semester")
+        self.student_table.heading("id", text="Student ID")
+        self.student_table.heading("name", text="Student Name")
+        self.student_table.heading("div", text="Class Division")
+        self.student_table.heading("roll", text="Roll Number")
+        self.student_table.heading("gender", text="Gender")
+        self.student_table.heading("dob", text="DOB")
+        self.student_table.heading("email", text="Email")
+        self.student_table.heading("phone", text="Phone Number")
+        self.student_table.heading("address", text="Address")
+        self.student_table.heading("teacher", text="Teacher Name")
+        self.student_table.heading("photo", text="Photo Sample Status")
+        self.student_table["show"] = "headings"
+
+        self.student_table.column("dep", width=100)
+        self.student_table.column("course", width=100)
+        self.student_table.column("year", width=100)
+        self.student_table.column("sem", width=100)
+        self.student_table.column("id", width=100)
+        self.student_table.column("name", width=100)
+        self.student_table.column("div", width=100)
+        self.student_table.column("roll", width=100)
+        self.student_table.column("gender", width=100)
+        self.student_table.column("dob", width=100)
+        self.student_table.column("email", width=100)
+        self.student_table.column("phone", width=100)
+        self.student_table.column("address", width=100)
+        self.student_table.column("teacher", width=100)
+        self.student_table.column("photo", width=150)
+
+        self.student_table.pack(fill=tk.BOTH, expand=1)
+
+
+
+        #===== function Decleration ======#
+    def add_data(self):
+        if self.var_dep.get() == "Select Department" or self.var_std_name.get() == "" or self.va_std_id.get() == "":
+            messagebox.showerror("Error", "All fields are required", parent=self.root)
+        else:
+            try:
+                conn=mysql.connector.connect(host="localhost", username="root", password="Sachin@123", database="face_recognizer")
+                my_cursor=conn.cursor()
+                my_cursor.execute("insert into student values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(
+
+                                                                                                                 self.var_dep.get(),
+                                                                                                                 self.var_course.get(),
+                                                                                                                 self.var_year.get(),
+                                                                                                                 self.var_semester.get(),
+                                                                                                                 self.va_std_id.get(),
+                                                                                                                 self.var_std_name.get(),
+                                                                                                                 self.var_div.get(),
+                                                                                                                 self.var_roll.get(),
+                                                                                                                 self.var_gender.get(),
+                                                                                                                 self.var_dob.get(),
+                                                                                                                 self.var_email.get(),
+                                                                                                                 self.var_phone.get(),
+                                                                                                                 self.var_address.get(),
+                                                                                                                 self.var_teacher.get(),
+                                                                                                                 self.var_radio1.get()
+
+
+
+                                                                                                                  ))
+            
+                conn.commit()
+                self.fetch_data()
+                conn.close()
+                messagebox.showinfo("Success", "Student details has been added successfully", parent=self.root)
+            except Exception as es:
+                messagebox.showerror("Error", f"Due to :{str(es)}", parent=self.root)
+
+
+
+                # ===== fetch data ===== #
+                def fetch_data(self):
+                    conn=mysql.connector.connect(host="localhost", username="root", password="Sachin@123", database="face_recognizer")
+                    my_cursor=conn.cursor()
+                    my_cursor.execute("select * from student")
+                    data=my_cursor.fetchall()
+            
+                    if len(data)!=0:
+                        self.student_table.delete(*self.student_table.get_children())
+                        for i in data:
+                            self.student_table.insert("", tk.END, values=i)
+                        conn.commit()
+                    conn.close()
+            
+            
+            #===== get cursor =====#
+                def get_cursor(self,event=""):
+                    cursor_focus=self.student_table.focus()
+                    content=self.student_table.item(cursor_focus)
+                    data=content["values"]
+            
+                    self.var_dep.set(data[0]),
+                    self.var_course.set(data[1]),
+                    self.var_year.set(data[2]),
+                    self.var_semester.set(data[3]),
+                    self.va_std_id.set(data[4]),
+                    self.var_std_name.set(data[5]),
+                    self.var_div.set(data[6]),
+                    self.var_roll.set(data[7]),
+                    self.var_gender.set(data[8]),
+                    self.var_dob.set(data[9]),
+                    self.var_email.set(data[10]),
+                    self.var_phone.set(data[11]),
+                    self.var_address.set(data[12]),
+                    self.var_teacher.set(data[13]),
+                    self.var_radio1.set(data[14])
+                    
+                    
+
+                    #======= update function ======#
+
+    def update_data(self):
+        if self.var_dep.get() == "Select Department" or self.var_std_name.get() == "" or self.va_std_id.get() == "":
+            messagebox.showerror("Error", "All fields are required", parent=self.root)
+        else:
+            try:
+                update=messagebox.askyesno("Update", "Do you want to update this student details?", parent=self.root)
+                if update>0:
+                    conn=mysql.connector.connect(host="localhost", username="root", password="Sachin@123", database="face_recognizer")
+                    my_cursor=conn.cursor()
+                    my_cursor.execute("update student set Dep=%s,course=%s,Year=%s,Semester=%s,Name=%s,Division=%s,Roll=%s,Gender=%s,Dob=%s,Email=%s,Phone =%s,Address=%s,Teacher=%s,PhotoSample=%s where Std_id=%s",(
+                                        
+                                                                                                                                                                                                                 
+                                                                                                                                                                                                                 self.var_dep.get(),
+                                                                                                                                                                                                                 self.var_course.get(),
+                                                                                                                                                                                                                 self.var_year.get(),
+                                                                                                                                                                                                                 self.var_semester.get(),
+                                                                                                                                                                                                                 self.var_std_name.get(),
+                                                                                                                                                                                                                 self.var_div.get(),
+                                                                                                                                                                                                                 self.var_roll.get(),
+                                                                                                                                                                                                                 self.var_gender.get(),
+                                                                                                                                                                                                                 self.var_dob.get(),
+                                                                                                                                                                                                                 self.var_email.get(),
+                                                                                                                                                                                                                 self.var_phone.get(),
+                                                                                                                                                                                                                 self.var_address.get(),
+                                                                                                                                                                                                                 self.var_teacher.get(),
+                                                                                                                                                                                                                 self.var_radio1.get(),
+                                                                                                                                                                                                                 self.va_std_id.get()
+                
+                                                                                                                                                                                                            ))
+                else:
+                    if not update:
+                        return
+                    messagebox.showinfo("Success", "Successfully Updated", parent=self.root)
+                    conn.commit()
+                    self.fetch_data()
+                    conn.close()
+                
+            except Exception as es:
+                messagebox.showerror("Error", f"Due to :{str(es)}", parent=self.root)            
+                
+                
+                        #======= delete function ======#
+                def delete_data(self):
+                            if self.va_std_id.get() == "":
+                                messagebox.showerror("Error", "Student id must be required", parent=self.root)
+                            else:
+                                try:
+                                    delete=messagebox.askyesno("Student Delete Page", "Do you want to delete?", parent=self.root)
+                                    if delete>0:
+                                        conn=mysql.connector.connect(host="localhost", username="root", password="Sachin@123", database="face_recognizer")
+                                        my_cursor=conn.cursor()
+                                        sql="delete from student where Std_id=%s"
+                                        val=(self.va_std_id.get(),)
+                                        my_cursor.execute(sql, val)
+                                    else:
+                                        if not delete:
+                                            return
+                                        
+                                    conn.commit()
+                                    self.fetch_data()
+                                    conn.close()    
+                                    messagebox.showinfo("Success", "Successfully Deleted", parent=self.root) 
+                                except Exception as es:
+                                    messagebox.showerror("Error", f"Due to :{str(es)}", parent=self.root)
+                
+                       # ======= reset function ======#
+                
+                def reset_data(self):
+                        self.var_dep.set("Select Department")
+                        self.var_course.set("Select Course")
+                        self.var_year.set("Select Year")
+                        self.var_semester.set("Select Semester")
+                        self.va_std_id.set("")
+                        self.var_std_name.set("")
+                        self.var_div.set("select Division")
+                        self.var_roll.set("")
+                        self.var_gender.set("Select")
+                        self.var_dob.set("")
+                        self.var_email.set("")
+                        self.var_phone.set("")
+                        self.var_address.set("")
+                        self.var_teacher.set("")
+                        self.var_radio1.set("")
+
+                        
+                        
+
+                        
+        
+    
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    obj = Face_Recognition_System(root)
+    root.mainloop()
+
+
+
+              #  // 2nd file //  
+
+
+
+
+
+
+
+import tkinter as tk
+from tkinter import messagebox, Button
+from PIL import Image, ImageTk
+import mysql.connector
+import cv2
+import os
+
+class FaceRecognition:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("1530x790+0+0")
+        self.root.title("Face Recognition System")
+
+        title_lbl = tk.Label(self.root, text="FACE RECOGNITION", font=("times new roman", 35, "bold"), bg="white", fg="green")
+        title_lbl.place(x=0, y=0, width=1530, height=45)
+        
+        img_left_path = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\facephoto1.jpg"
+        if os.path.exists(img_left_path):
+            img_left = Image.open(img_left_path)
+            img_left = img_left.resize((650, 700), Image.LANCZOS)
+            self.photoimg_left = ImageTk.PhotoImage(img_left)
+            f_lbl_top = tk.Label(self.root, image=self.photoimg_left)
+            f_lbl_top.place(x=0, y=55, width=650, height=700)
+        else:
+            messagebox.showerror("Error", f"Image path '{img_left_path}' does not exist")  # GUI feedback
+
+        img_right_path = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\facephoto2.webp"
+        if os.path.exists(img_right_path):
+            img_right = Image.open(img_right_path)
+            img_right = img_right.resize((870, 700), Image.LANCZOS)
+            self.photoimg_right = ImageTk.PhotoImage(img_right)
+            f_lbl_right = tk.Label(self.root, image=self.photoimg_right)
+            f_lbl_right.place(x=650, y=55, width=870, height=700)
+        else:
+            messagebox.showerror("Error", f"Image path '{img_right_path}' does not exist")  # GUI feedback
+
+        b1_1 = Button(self.root, text="Face Recognition", command=self.face_recog, cursor="hand2", font=("times new roman", 18, "bold"), bg="red", fg="white")
+        b1_1.place(x=960, y=675, width=250, height=35)
+
+    def face_recog(self):
+        def draw_boundary(img, classifier, scaleFactor, minNeighbors, color, text, clf):
+            gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            features = classifier.detectMultiScale(gray_image, scaleFactor, minNeighbors)
+            coord = []
+
+            for (x, y, w, h) in features:
+                cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
+                id, predict = clf.predict(gray_image[y:y + h, x:x + w])
+                confidence = int((100 * (1 - predict / 300)))
+
+                # Connect to the database
+                conn = mysql.connector.connect(host="localhost", username="root", password="Sachin@123", database="face_recognizer")
+                my_cursor = conn.cursor()
+
+                # Fetch data from the database
+                my_cursor.execute("select Name from student where Std_id=" + str(id))  # Potential SQL injection risk
+                n = my_cursor.fetchone()
+                n = "+".join(n) if n else "Unknown"  # Handle case when no result is fetched
+
+                my_cursor.execute("select Roll from student where Std_id=" + str(id))  # Potential SQL injection risk
+                r = my_cursor.fetchone()
+                r = "+".join(r) if r else "Unknown"  # Handle case when no result is fetched
+                
+                my_cursor.execute("select Dep from student where Std_id=" + str(id))  # Potential SQL injection risk
+                d = my_cursor.fetchone()
+                d = "+".join(d) if d else "Unknown"  # Handle case when no result is fetched
+
+                if confidence > 77:
+                    cv2.putText(img, f"Roll: {r}", (x, y - 55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Name: {n}", (x, y - 30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Department: {d}", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                else:
+                    cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 3)
+                    cv2.putText(img, "Unknown Face", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+
+                coord = [x, y, w, h]
+
+            return coord
+
+        def recognize(img, clf, faceCascade):
+            coord = draw_boundary(img, faceCascade, 1.1, 10, (255, 25, 255), "Face", clf)
+            return img
+
+        faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+        clf = cv2.face.LBPHFaceRecognizer_create()
+        clf.read("classifier.xml")
+
+        video_cap = cv2.VideoCapture(0)
+
+        while True:
+            ret, img = video_cap.read()
+            if not ret:  # Handle case when frame is not captured
+                print("Failed to capture video frame")
+                break
+            img = recognize(img, clf, faceCascade)
+            cv2.imshow("Welcome To Face Recognition", img)
+
+            if cv2.waitKey(1) == 13:  # Press 'Enter' key to exit
+                break
+        video_cap.release()
+        cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    obj = FaceRecognition(root)
+    root.mainloop()
+
+
+
+
+
+import tkinter as tk
+from tkinter import messagebox, Button
+from PIL import Image, ImageTk
+import mysql.connector
+import cv2
+import os
+
+class FaceRecognition:
+    def __init__(self, root):
+        self.root = root
+        self.root.geometry("1530x790+0+0")
+        self.root.title("Face Recognition System")
+
+        title_lbl = tk.Label(self.root, text="FACE RECOGNITION", font=("times new roman", 35, "bold"), bg="white", fg="green")
+        title_lbl.place(x=0, y=0, width=1530, height=45)
+        
+        img_left_path = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\facephoto1.jpg"
+        if os.path.exists(img_left_path):
+            img_left = Image.open(img_left_path)
+            img_left = img_left.resize((650, 700), Image.LANCZOS)
+            self.photoimg_left = ImageTk.PhotoImage(img_left)
+            f_lbl_top = tk.Label(self.root, image=self.photoimg_left)
+            f_lbl_top.place(x=0, y=55, width=650, height=700)
+        else:
+            messagebox.showerror("Error", f"Image path '{img_left_path}' does not exist")  # GUI feedback
+
+        img_right_path = r"C:\Users\princ\OneDrive\Desktop\Frontend Developer\Face-recongnition_system\facephoto2.webp"
+        if os.path.exists(img_right_path):
+            img_right = Image.open(img_right_path)
+            img_right = img_right.resize((870, 700), Image.LANCZOS)
+            self.photoimg_right = ImageTk.PhotoImage(img_right)
+            f_lbl_right = tk.Label(self.root, image=self.photoimg_right)
+            f_lbl_right.place(x=650, y=55, width=870, height=700)
+        else:
+            messagebox.showerror("Error", f"Image path '{img_right_path}' does not exist")  # GUI feedback
+
+        b1_1 = Button(self.root, text="Face Recognition", command=self.face_recog, cursor="hand2", font=("times new roman", 18, "bold"), bg="red", fg="white")
+        b1_1.place(x=960, y=675, width=250, height=35)
+
+    def face_recog(self):
+        def draw_boundary(img, classifier, scaleFactor, minNeighbors, color, text, clf):
+            gray_image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+            features = classifier.detectMultiScale(gray_image, scaleFactor, minNeighbors)
+            coord = []
+
+            for (x, y, w, h) in features:
+                cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 3)
+                id, predict = clf.predict(gray_image[y:y + h, x:x + w])
+                confidence = int((100 * (1 - predict / 300)))
+
+                # Connect to the database
+                conn = mysql.connector.connect(host="localhost", username="root", password="Sachin@123", database="face_recognizer")
+                my_cursor = conn.cursor()
+
+                # Fetch data from the database
+                my_cursor.execute("select Name from student where Std_id=" + str(id))  # Potential SQL injection risk
+                n = my_cursor.fetchone()
+                n = "+".join(n) if n else "Unknown"  # Handle case when no result is fetched
+
+                my_cursor.execute("select Roll from student where Std_id=" + str(id))  # Potential SQL injection risk
+                r = my_cursor.fetchone()
+                r = "+".join(r) if r else "Unknown"  # Handle case when no result is fetched
+                
+                my_cursor.execute("select Dep from student where Std_id=" + str(id))  # Potential SQL injection risk
+                d = my_cursor.fetchone()
+                d = "+".join(d) if d else "Unknown"  # Handle case when no result is fetched
+
+                if confidence > 77:
+                    cv2.putText(img, f"Roll: {r}", (x, y - 55), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Name: {n}", (x, y - 30), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                    cv2.putText(img, f"Department: {d}", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+                else:
+                    cv2.rectangle(img, (x, y), (x + w, y + h), (0, 0, 255), 3)
+                    cv2.putText(img, "Unknown Face", (x, y - 5), cv2.FONT_HERSHEY_COMPLEX, 0.8, (255, 255, 255), 3)
+
+                coord = [x, y, w, h]
+
+            return coord
+
+        def recognize(img, clf, faceCascade):
+            coord = draw_boundary(img, faceCascade, 1.1, 10, (255, 25, 255), "Face", clf)
+            return img
+
+        faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
+        clf = cv2.face.LBPHFaceRecognizer_create()
+        clf.read("classifier.xml")
+
+        video_cap = cv2.VideoCapture(0)
+
+        while True:
+            ret, img = video_cap.read()
+            if not ret:  # Handle case when frame is not captured
+                print("Failed to capture video frame")
+                break
+            img = recognize(img, clf, faceCascade)
+            cv2.imshow("Welcome To Face Recognition", img)
+
+            if cv2.waitKey(1) == 13:  # Press 'Enter' key to exit
+                break
+        video_cap.release()
+        cv2.destroyAllWindows()
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    obj = FaceRecognition(root)
+    root.mainloop()
+               
